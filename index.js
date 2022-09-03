@@ -58,8 +58,9 @@ const displayNews = data =>{
                     <h6 class="my-auto text-primary">${news.total_view}</h6>
                     </div>
                     <div class="m-auto">
-                    <button class="btn btn-outline-primary btn-floating" role="button">See More</button>                    </div>
-                  </div>
+                    <button onclick="loadNewsDetails('${news._id}')" class="btn btn-outline-primary btn-floating" role="button" data-bs-toggle="modal" data-bs-target="#detailsModal">See More</button>                    
+                    </div>
+                    </div>
                 </div>
               </div>
             </div>
@@ -69,5 +70,31 @@ const displayNews = data =>{
   })
 }
 
+const loadNewsDetails = async news_id =>{
+  const url = `https://openapi.programming-hero.com/api/news/${news_id}`
+  const res= await fetch(url);
+  const data= await res.json();
+  displayNewsDetails(data.data[0]);
+}
+
+const displayNewsDetails = news =>{
+  console.log(news);
+  const detailsModalContainer= document.getElementById('detailsModalLabel');
+  detailsModalContainer.innerText= news.title
+  const detailsModalFull= document.getElementById('detailsModalFull')
+  detailsModalFull.innerHTML=
+  `   
+      <img src="${news.image_url}" class="img-fluid" alt="...">
+      <p class="fw-semibold fs-6">Reported by: ${news.author.name ? news.author.name : 'No Data Available'}</p>
+      <p class="fw-bold">Full Story: <span class="fw-semibold">${news.details ? news.details : 'No Data Available'}</span></p>
+      <p>Published: ${news.author.published_date ? news.author.published_date: 'No Data Available'}</p>
+      <p>Viewers: ${news.total_view ? news.total_view : 'No Data Available'}</p>
+      <p>Rating: ${news.rating.number? news.rating.number : 'No Data Available'}</p>
+              
+  `
+}
+
+
 loadNewsCtg();
-loadNews('8');      //8 for ALl News showing at start.
+loadNews('8');      //8 for ALl News showing at start. = 08
+loadNewsDetails();
