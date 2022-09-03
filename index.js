@@ -13,13 +13,14 @@ const displayNewsCtg = data =>{
         console.log(category);
         const ctgli= document.createElement('li');
         ctgli.classList.add('nav-item');
-        ctgli.innerHTML = ` <a class="nav-link fw-semibold" href="#">${category.category_name}</a>`;
+        ctgli.innerHTML = ` <a onclick="loadNews(${category.category_id})" class="nav-link fw-semibold btn btn-outline-primary btn-floating" href="#">${category.category_name}</a>`;
         categoryContainer.appendChild(ctgli);
     })
 }
 
-const loadNews = async(category_id) =>{
-  const url=`https://openapi.programming-hero.com/api/news/category/${category_id}`
+
+const loadNews = async category_id =>{
+  const url=`https://openapi.programming-hero.com/api/news/category/0${category_id}`    //extra 0 for passing '0 category_id' in loadNews
   const res= await fetch(url);
   const data= await res.json();
   displayNews(data.data);
@@ -44,19 +45,19 @@ const displayNews = data =>{
                   <h5 class="card-title">${news.title}</h5>
                   <p class="card-text fs-6">${news.details.slice(0,220)}...</p>
                   <div class="card-footer d-flex justify-content-between">
-                    <div class="d-flex">
-                    <img src="${news.author.img}" class="rounded" alt="" width="50" height="50">
+                    <div class="d-flex m-auto">
+                    <img src="${news.author.img}" class="img-thumbnail rounded" alt="" width="50" height="50">
                     <div>
                     <h5 class="fs-6 m-1 fw-bold text-primary">${news.author.name}</h5>
                     <h6 class="m-1">${news.author.published_date}</h6>
                     </div>
                     </div>
-                    <div>
-                    <img src="images/user.png" alt="" width="40" height="40">
+                    <div class="m-auto d-flex">
+                    <img class="me-1" src="images/eyes.png" alt="" width="25" height="25">
+                    <h6 class="my-auto text-primary">${news.total_view}</h6>
                     </div>
-                    <div>
-                    <img src="images/user.png" alt="" width="40" height="40">
-                    </div>
+                    <div class="m-auto">
+                    <button class="btn btn-outline-primary btn-floating" role="button">See More</button>                    </div>
                   </div>
                 </div>
               </div>
@@ -68,4 +69,4 @@ const displayNews = data =>{
 }
 
 loadNewsCtg();
-loadNews('08');
+loadNews('8');      //8 for ALl News showing at start.
