@@ -29,6 +29,7 @@ const displayNews = data =>{
   console.log(data);
 
   const newsContainer = document.getElementById('news-container');
+  newsContainer.innerHTML= '';
 
   data.forEach(news =>{
     console.log(news);
