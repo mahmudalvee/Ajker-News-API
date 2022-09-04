@@ -1,8 +1,13 @@
 const loadNewsCtg = async() =>{
     const url=`https://openapi.programming-hero.com/api/news/categories`
-    const res= await fetch(url);
-    const data= await res.json();
-    displayNewsCtg(data.data.news_category);
+    try{
+      const res= await fetch(url);
+      const data= await res.json();
+      displayNewsCtg(data.data.news_category);
+    }
+    catch(error){
+      alert(error);
+    }
 }
 
 const displayNewsCtg = data =>{
@@ -22,9 +27,14 @@ const displayNewsCtg = data =>{
 const loadNews = async category_id =>{
   toggleLoader(true);
   const url=`https://openapi.programming-hero.com/api/news/category/0${category_id}`    //extra 0 for passing '0 category_id' in loadNews
-  const res= await fetch(url);
-  const data= await res.json();
-  displayNews(data.data);
+  try{
+    const res= await fetch(url);
+    const data= await res.json();
+    displayNews(data.data);
+  }
+  catch(error){
+    alert(error);
+  }
 }
 const displayNews = data =>{
   console.log(data);
@@ -50,7 +60,7 @@ const displayNews = data =>{
                 <div class="card-body">
                   <h5 class="card-title">${news.title ? news.title : 'No Data Available'}</h5>
                   <p class="card-text fs-6">${news.details ? news.details.slice(0,220) : 'No Data Available'}...</p>
-                  <div class="card-footer d-flex justify-content-between">
+                  <div class="card-footer d-lg-flex justify-content-between mx-auto">
                     <div class="d-flex m-auto">
                     <img src="${news.author.img ? news.author.img : 'No Data Available'}" class="img-thumbnail rounded" alt="" width="50" height="50">
                     <div>
@@ -86,9 +96,14 @@ const displayNews = data =>{
 
 const loadNewsDetails = async news_id =>{
   const url = `https://openapi.programming-hero.com/api/news/${news_id}`
-  const res= await fetch(url);
-  const data= await res.json();
-  displayNewsDetails(data.data[0]);
+  try{
+    const res= await fetch(url);
+    const data= await res.json();
+    displayNewsDetails(data.data[0]);
+  }
+  catch(error){
+    alert(error);
+  }
 }
 
 const displayNewsDetails = news =>{
