@@ -80,7 +80,7 @@ const loadNewsDetails = async news_id =>{
 const displayNewsDetails = news =>{
   console.log(news);
   const detailsModalContainer= document.getElementById('detailsModalLabel');
-  detailsModalContainer.innerText= news.title
+  detailsModalContainer.innerText= news.title;
   const detailsModalFull= document.getElementById('detailsModalFull')
   detailsModalFull.innerHTML=
   `   
@@ -97,4 +97,3 @@ const displayNewsDetails = news =>{
 
 loadNewsCtg();
 loadNews('8');      //8 for ALl News showing at start. = 08
-loadNewsDetails();

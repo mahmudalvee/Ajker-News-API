@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ajker News</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  </head>
+  <body>
+    <main class="container">
+    
+        <header>
+
+      <nav class="navbar navbar-expand-lg bg-warning p-3 border border-info border-start-1 rounded mb-3">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold texts text-light" href="#">
+            <img class="m-1" src="images/global-news.png" alt="" width="60" height="60">
+            <span class="mx-1 d-inline-block fs-3 text-dark fw-bold">Ajker <span class="text-primary fs-2">News</span></span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            </ul>
+            <form class="d-flex" role="search">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item mx-auto">
+                  <a class="nav-link active fw-bold" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item mx-auto">
+                  <!-- Button trigger modal -->
+                    <a onclick="blogsModal()" class="nav-link fw-bold" aria-current="page" href="blog.html">Blog</a>
+                   
+                </li>
+                <li class="nav-item mx-auto">
+                  <img src="images/user.png" alt="" width="40" height="40">
+                </li>
+                </ul>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+    </header>
+    
+    <section>
+        <h1 class="text-center text-primary fw-bold mt-3">Q&A Blogs</h1>
+        <hr class="border border-primary border-3 opacity-75  mb-5">
+    </section>
+            <!-- F A Questions -->
+    <section class="container my-5 p-3">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 col-md-9 col-sm-9">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Difference between ver, let & const
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <h6> While the var can have a global as well as functional scope (depending on the situation), the let and const have block scopes. Another difference is in updating the values and re-declaring the variables. <p>The variables declared with var can be updated and re-declaring while variables declared with let can be updated but cannot be re-declared. In the case of const, the variable cannot be updated or re-declared.</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Arrow Function vs Regular Function
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <h6>An arrow function is also known as the fat arrow function. It is a new feature introduced in ES6 that is a more concise syntax for writing function expressions. Both regular JavaScript functions and arrow functions work in a similar manner but there are some differences between them. Let's see the differences below: 
+                    <ul>
+                        <li>Syntax</li>
+                        <li>Arguments binding</li>
+                        <li>'this' keyword</li>
+                        <li>Using a new keyword</li>
+                    </ul>
+                    <h6>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    map, forEach, filter, find
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <h6>
+                        <ul>
+                            <li>map() creates a new array from calling a function for every array element. map() calls a function once for each element in an array.</li>
+                            <li>forEach method is one of the several ways to loop through arrays. Each method has different features, and it is up to you, depending on what you're doing, to decide which one to use.</li>
+                            <li>filter() method creates a new array filled with elements that pass a test provided by a function. It return an array of all values by filtering</li>
+                            <li>find() method returns the value of the first element that passes a test. It executes a function for each array element. It returns undefined if no elements are found.</li>
+                        </ul>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Template strings
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <h6>Template strings allows to use strings or embedded expressions in the form of a string. They are enclosed in backticks ``. For example:<p> const name = 'Jack'; console. log(`Hello ${name}!`);</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+    </main>
+    <footer class="bg-success text-center text-white">
+        <div class="text-center p-3 bg-dark">
+          © 2022 copyright:
+          <a class="text-warning fw-bold" href="index.html">Ajker News</a>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>    
+</body>
+    
+</html>
