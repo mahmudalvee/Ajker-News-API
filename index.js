@@ -31,10 +31,12 @@ const displayNews = data =>{
   const newsContainer = document.getElementById('news-container');
   newsContainer.innerHTML= '';
   const totalNewsContainer = document.getElementById('total-news-container');
-
+  //Sorting news by most views
+  data.sort((b,a) => a.total_view - b.total_view);
 
   data.forEach(news =>{
     console.log(news);
+    
     // console.log(news.author.img);
     const newsDiv = document.createElement('div');
 
