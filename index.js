@@ -44,23 +44,23 @@ const displayNews = data =>{
     <div class="card m-3" style="max-width: 100%;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src=${news.image_url} class="img-fluid h-100 rounded-start" alt="...">
+                <img src=${news.image_url ? news.image_url : 'No Data Available'} class="img-fluid h-100 rounded-start" alt="...">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">${news.title}</h5>
-                  <p class="card-text fs-6">${news.details.slice(0,220)}...</p>
+                  <h5 class="card-title">${news.title ? news.title : 'No Data Available'}</h5>
+                  <p class="card-text fs-6">${news.details ? news.details.slice(0,220) : 'No Data Available'}...</p>
                   <div class="card-footer d-flex justify-content-between">
                     <div class="d-flex m-auto">
-                    <img src="${news.author.img}" class="img-thumbnail rounded" alt="" width="50" height="50">
+                    <img src="${news.author.img ? news.author.img : 'No Data Available'}" class="img-thumbnail rounded" alt="" width="50" height="50">
                     <div>
-                    <h5 class="fs-6 m-1 fw-bold text-primary">${news.author.name}</h5>
-                    <h6 class="m-1">${news.author.published_date}</h6>
+                    <h5 class="fs-6 m-1 fw-bold text-primary">${news.author.name ? news.author.name : 'No Data Available'}</h5>
+                    <h6 class="m-1">${news.author.published_date ? news.author.published_date : 'No Data Available'}</h6>
                     </div>
                     </div>
                     <div class="m-auto d-flex">
                     <img class="me-1" src="images/eyes.png" alt="" width="25" height="25">
-                    <h6 class="my-auto text-primary">${news.total_view}</h6>
+                    <h6 class="my-auto text-primary">${news.total_view ? news.total_view : 'No Data Available'}</h6>
                     </div>
                     <div class="m-auto">
                     <button onclick="loadNewsDetails('${news._id}')" class="btn btn-outline-primary btn-floating" role="button" data-bs-toggle="modal" data-bs-target="#detailsModal">See More</button>                    
