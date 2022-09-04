@@ -20,6 +20,7 @@ const displayNewsCtg = data =>{
 
 
 const loadNews = async category_id =>{
+  toggleLoader(true);
   const url=`https://openapi.programming-hero.com/api/news/category/0${category_id}`    //extra 0 for passing '0 category_id' in loadNews
   const res= await fetch(url);
   const data= await res.json();
@@ -27,14 +28,16 @@ const loadNews = async category_id =>{
 }
 const displayNews = data =>{
   console.log(data);
-
   const newsContainer = document.getElementById('news-container');
   newsContainer.innerHTML= '';
+  const totalNewsContainer = document.getElementById('total-news-container');
+
 
   data.forEach(news =>{
     console.log(news);
     // console.log(news.author.img);
     const newsDiv = document.createElement('div');
+
     newsDiv.innerHTML = `
     <div class="card m-3" style="max-width: 100%;">
             <div class="row g-0">
@@ -66,8 +69,17 @@ const displayNews = data =>{
             </div>
           </div>
     `
+    
     newsContainer.appendChild(newsDiv);
-  })
+  });
+  totalNewsContainer.innerHTML = `
+  <div class="card">
+  <div class="card-body text-center fw-bold">
+     Total <span class="text-primary">${data.length}</span> news found.
+  </div>
+</div>
+  `
+  toggleLoader(false);
 }
 
 const loadNewsDetails = async news_id =>{
@@ -92,6 +104,17 @@ const displayNewsDetails = news =>{
       <p>Rating: ${news.rating.number? news.rating.number : 'No Data Available'}</p>
               
   `
+}
+
+const toggleLoader= isLoading => {      
+  // ^isLoading= parameter taking true/false
+  const loader= document.getElementById('loader');
+  if(isLoading){
+      loader.classList.remove('d-none')
+  }
+  else{
+      loader.classList.add('d-none')
+  }
 }
 
 
